@@ -108,3 +108,11 @@ html, body {
   footer p {
     margin: auto;
   }
+
+  #partycounter{
+    font-size: 30px;
+    margin-left: 75px;
+    margin-top: -47px;
+    color: maroon;
+
+  }

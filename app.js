@@ -8,7 +8,6 @@ const getPokemon = async function (id) {
     return data;
     //createPokemonCard( data );
   };
-  
 
 const app = Vue.createApp({
   data() {
@@ -18,6 +17,7 @@ const app = Vue.createApp({
       partyPokemon: [],
       filteredPokemon: [],
       maxPartySize: 6,
+      partycount: 0,
     };
   },
   methods: {
@@ -44,15 +44,22 @@ const app = Vue.createApp({
     },
     addPokemonToParty(pokemon) 
     {
+      if (this.partycount < 6){
       const pokemonCopy = {...pokemon};
       pokemonCopy.guid = this.getGUID();
       console.log(pokemonCopy.guid);
       this.partyPokemon.push(  pokemonCopy );
+      this.partycount = this.partycount + 1;
+      }
     },
     removePokemonFromParty(pokemon) {
       
       this.partyPokemon = this.partyPokemon
                             .filter( p => p.guid != pokemon.guid);
+      
+     this.partycount = this.partycount - 1;
+
+     
     },
     pokemonTypeString(pokemon) {
       if (pokemon.types.length > 1) {
