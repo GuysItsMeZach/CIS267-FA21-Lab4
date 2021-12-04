@@ -23,7 +23,7 @@ const app = Vue.createApp({
   methods: {
     async loadPokemon() {
       // load all pokemon from API and save into all pokemon
-      const pokemon_count = 20;
+      const pokemon_count = 151;
       let pokemon = [];
       for (let i = 1; i <= pokemon_count; i++) {
         let p = await getPokemon(i);
